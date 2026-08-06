@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-crop-forest: #164A41;
+  --color-crop-cream: #F4F1E8;
+  --color-crop-leaf: #4D774E;
+  --color-crop-sage: #9DC88D;
+  --color-crop-soil: #D1B284;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
