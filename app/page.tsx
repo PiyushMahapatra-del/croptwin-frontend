@@ -1,4 +1,5 @@
 import AtmosphereBackground from "@/components/atmosphere-background"
+import InteractiveGrassCanvas from "@/components/interactive-grass-canvas"
 import LithosphereFooter from "@/components/lithosphere-footer"
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         </div>
         </main>
 
+        <InteractiveGrassCanvas />
         <LithosphereFooter />
       </div>
     </>
