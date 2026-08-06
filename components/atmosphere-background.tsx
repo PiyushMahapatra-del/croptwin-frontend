@@ -17,22 +17,32 @@ export default function AtmosphereBackground() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 select-none"
       >
-        {/* Evening glow header: golden-sage fading into cream */}
+        {/* Evening sunset sky: warm violet-to-amber band fading into cream */}
         <div
-          className="absolute inset-x-0 top-0 h-[45vh]"
+          className="absolute inset-x-0 top-0 h-[62vh]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(209,178,132,0.55) 0%, rgba(157,200,141,0.30) 35%, rgba(244,241,232,0) 100%)",
+              "linear-gradient(180deg, rgba(122,90,140,0.42) 0%, rgba(214,116,110,0.48) 24%, rgba(240,160,96,0.52) 44%, rgba(247,206,138,0.42) 62%, rgba(244,241,232,0) 100%)",
+          }}
+        />
+
+        {/* Low sun glow, warm and diffuse, sitting near the horizon */}
+        <div
+          className="absolute left-1/2 top-[30vh] h-[46vh] w-[46vh] -translate-x-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,214,140,0.85) 0%, rgba(250,170,102,0.45) 42%, rgba(240,160,96,0) 72%)",
+            filter: "blur(6px)",
           }}
         />
 
         {/* Soft cloud blobs with blurred edges, masked to fade at the bottom */}
         <div
-          className="absolute inset-x-0 top-0 h-[45vh]"
+          className="absolute inset-x-0 top-0 h-[55vh]"
           style={{
             WebkitMaskImage:
-              "linear-gradient(180deg, #000 55%, transparent 100%)",
-            maskImage: "linear-gradient(180deg, #000 55%, transparent 100%)",
+              "linear-gradient(180deg, #000 60%, transparent 100%)",
+            maskImage: "linear-gradient(180deg, #000 60%, transparent 100%)",
           }}
         >
           {CLOUDS.map((c, i) => (
@@ -51,9 +61,9 @@ export default function AtmosphereBackground() {
                 } as CSSProperties
               }
             >
-              <ellipse cx="60" cy="45" rx="55" ry="28" fill="#FBF3E0" />
-              <ellipse cx="105" cy="35" rx="48" ry="30" fill="#F3E4C6" />
-              <ellipse cx="145" cy="48" rx="45" ry="24" fill="#FBF3E0" />
+              <ellipse cx="60" cy="45" rx="55" ry="28" fill="#F6C79A" />
+              <ellipse cx="105" cy="35" rx="48" ry="30" fill="#E89A8C" />
+              <ellipse cx="145" cy="48" rx="45" ry="24" fill="#F6C79A" />
             </svg>
           ))}
         </div>
@@ -84,34 +94,6 @@ export default function AtmosphereBackground() {
             />
           </svg>
         ))}
-
-        {/* Dragonflies hovering in the middle background */}
-        {DRAGONFLIES.map((d, i) => (
-          <svg
-            key={`fly-${i}`}
-            viewBox="0 0 44 24"
-            className="absolute"
-            style={
-              {
-                left: d.left,
-                top: d.top,
-                width: d.width,
-                color: "#164A41",
-                opacity: d.opacity,
-                animation: `hover ${d.dur}s ease-in-out ${d.delay}s infinite alternate, sway ${d.sway}s ease-in-out ${d.delay}s infinite`,
-              } as CSSProperties
-            }
-          >
-            {/* body */}
-            <rect x="21" y="7" width="2" height="15" rx="1" fill="currentColor" />
-            <circle cx="22" cy="6" r="2.5" fill="currentColor" />
-            {/* wings */}
-            <ellipse cx="12" cy="8" rx="11" ry="3" fill="currentColor" opacity="0.7" />
-            <ellipse cx="32" cy="8" rx="11" ry="3" fill="currentColor" opacity="0.7" />
-            <ellipse cx="13" cy="12" rx="9" ry="2.5" fill="currentColor" opacity="0.5" />
-            <ellipse cx="31" cy="12" rx="9" ry="2.5" fill="currentColor" opacity="0.5" />
-          </svg>
-        ))}
       </div>
     </div>
   )
@@ -131,13 +113,6 @@ const BIRDS = [
   { left: "76%", top: "6%", width: 22, opacity: 0.28, dur: 24, delay: 3.5, flap: 2.1 },
 ]
 
-const DRAGONFLIES = [
-  { left: "26%", top: "44%", width: 40, opacity: 0.3, dur: 12, delay: 0, sway: 3.2 },
-  { left: "52%", top: "50%", width: 34, opacity: 0.26, dur: 14, delay: 1.5, sway: 3.8 },
-  { left: "68%", top: "40%", width: 44, opacity: 0.34, dur: 11, delay: 0.8, sway: 2.9 },
-  { left: "40%", top: "56%", width: 30, opacity: 0.25, dur: 15, delay: 2.4, sway: 4.1 },
-]
-
 const keyframes = `
 @keyframes drift {
   from { transform: translateX(0) translateY(0); }
@@ -150,14 +125,6 @@ const keyframes = `
 @keyframes flap {
   0%, 100% { transform: scaleY(1); }
   50%      { transform: scaleY(0.6); }
-}
-@keyframes hover {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(-24px, 18px); }
-}
-@keyframes sway {
-  0%, 100% { rotate: -6deg; }
-  50%      { rotate: 6deg; }
 }
 @media (prefers-reduced-motion: reduce) {
   [aria-hidden="true"] svg { animation: none !important; }
