@@ -2,6 +2,7 @@ import AtmosphereBackground from "@/components/atmosphere-background"
 import InteractiveGrassCanvas from "@/components/interactive-grass-canvas"
 import LithosphereFooter from "@/components/lithosphere-footer"
 import FarmSetupWizard from "@/components/farm-setup-wizard"
+import DigitalTwinGrid from "@/components/digital-twin-grid"
 
 export default function Home() {
   return (
@@ -32,6 +33,10 @@ export default function Home() {
 
         <div className="mt-12 w-full">
           <FarmSetupWizard />
+        </div>
+
+        <div className="mt-12 w-full">
+          <DigitalTwinGrid />
         </div>
         </main>
 
