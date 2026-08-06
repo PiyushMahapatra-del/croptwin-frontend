@@ -1,6 +1,7 @@
 import AtmosphereBackground from "@/components/atmosphere-background"
 import InteractiveGrassCanvas from "@/components/interactive-grass-canvas"
 import LithosphereFooter from "@/components/lithosphere-footer"
+import FarmSetupWizard from "@/components/farm-setup-wizard"
 
 export default function Home() {
   return (
@@ -27,6 +28,10 @@ export default function Home() {
           <button className="rounded-full border border-[#4D774E]/40 bg-transparent px-6 py-3 text-sm font-medium text-[#164A41] transition-colors hover:bg-[#9DC88D]/20">
             Watch demo
           </button>
+        </div>
+
+        <div className="mt-12 w-full">
+          <FarmSetupWizard />
         </div>
         </main>
 
