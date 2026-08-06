@@ -1,12 +1,14 @@
 import AtmosphereBackground from "@/components/atmosphere-background"
+import LithosphereFooter from "@/components/lithosphere-footer"
 
 export default function Home() {
   return (
-    <div className="relative flex-1">
+    <>
       <AtmosphereBackground />
 
-      {/* Foreground content sits above the ambient layer */}
-      <main className="pointer-events-auto absolute inset-0 z-10 flex flex-col items-center justify-start px-6 pt-28 text-center">
+      {/* Foreground container sits above the fixed background layer */}
+      <div className="relative z-10 flex min-h-screen flex-col justify-between">
+        <main className="flex flex-1 flex-col items-center justify-start px-6 pt-28 pb-24 text-center">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#4D774E]">
           CropTwin AI
         </p>
@@ -25,7 +27,10 @@ export default function Home() {
             Watch demo
           </button>
         </div>
-      </main>
-    </div>
+        </main>
+
+        <LithosphereFooter />
+      </div>
+    </>
   )
 }

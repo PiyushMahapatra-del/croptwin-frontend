@@ -9,36 +9,26 @@ import type { CSSProperties } from "react"
  */
 export default function AtmosphereBackground() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#F4F1E8]">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 select-none overflow-hidden bg-[#F4F1E8]"
+    >
       <style>{keyframes}</style>
 
       {/* Ambient layer — never blocks foreground interaction */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 select-none"
-      >
-        {/* Evening sunset sky: warm violet-to-amber band fading into cream */}
+      <div className="pointer-events-none absolute inset-0 z-0 select-none">
+        {/* Soft golden-sage evening cloud gradient across the top ~28%, fading into cream */}
         <div
-          className="absolute inset-x-0 top-0 h-[62vh]"
+          className="absolute inset-x-0 top-0 h-[30vh]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(122,90,140,0.42) 0%, rgba(214,116,110,0.48) 24%, rgba(240,160,96,0.52) 44%, rgba(247,206,138,0.42) 62%, rgba(244,241,232,0) 100%)",
-          }}
-        />
-
-        {/* Low sun glow, warm and diffuse, sitting near the horizon */}
-        <div
-          className="absolute left-1/2 top-[30vh] h-[46vh] w-[46vh] -translate-x-1/2 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(255,214,140,0.85) 0%, rgba(250,170,102,0.45) 42%, rgba(240,160,96,0) 72%)",
-            filter: "blur(6px)",
+              "linear-gradient(180deg, rgba(209,178,132,0.55) 0%, rgba(157,200,141,0.35) 45%, rgba(244,241,232,0) 100%)",
           }}
         />
 
         {/* Soft cloud blobs with blurred edges, masked to fade at the bottom */}
         <div
-          className="absolute inset-x-0 top-0 h-[55vh]"
+          className="absolute inset-x-0 top-0 h-[32vh]"
           style={{
             WebkitMaskImage:
               "linear-gradient(180deg, #000 60%, transparent 100%)",
@@ -61,9 +51,9 @@ export default function AtmosphereBackground() {
                 } as CSSProperties
               }
             >
-              <ellipse cx="60" cy="45" rx="55" ry="28" fill="#F6C79A" />
-              <ellipse cx="105" cy="35" rx="48" ry="30" fill="#E89A8C" />
-              <ellipse cx="145" cy="48" rx="45" ry="24" fill="#F6C79A" />
+              <ellipse cx="60" cy="45" rx="55" ry="28" fill="#FBF6EA" />
+              <ellipse cx="105" cy="35" rx="48" ry="30" fill="#E7D9B8" />
+              <ellipse cx="145" cy="48" rx="45" ry="24" fill="#FBF6EA" />
             </svg>
           ))}
         </div>
